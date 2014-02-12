@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
    validates :name, presence: true, length: { maximum: 35 }
    validates :zip , length: { minimum: 2 }, allow_blank: true
    validates :years_in_practice ,numericality: { greater_than_or_equal_to: 1,less_than_or_equal_to: 100 } , allow_blank: true
-
+   validates :role , presence: true
 
   #Callbacks goes here ------------------
 
