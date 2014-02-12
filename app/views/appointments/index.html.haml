@@ -24,9 +24,10 @@
           %td= appointment.reminder_of_appointment
           %td= appointment.reason_for_visit.truncate(25, omission: '...')
           %td
-            = link_to 'Edit' ,edit_appointment_path(appointment)
-            = link_to 'Delete' ,appointment,method: :delete,data: {confirm: 'Sure?'}
+            = link_to 'Edit' ,edit_appointment_path(appointment)  if can? :update, appointment
+            = link_to 'Delete' ,appointment,method: :delete,data: {confirm: 'Sure?'}  if can? :destroy, appointment
         - count += 1
 
-= link_to 'Register New Appointment' , new_appointment_path
+- if can? :create, Appointment
+  = link_to 'Register New Appointment' , new_appointment_path
 

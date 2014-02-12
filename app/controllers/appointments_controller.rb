@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_appointment, only: [:edit, :update, :destroy]
-
+  load_and_authorize_resource
 
   def index
     @appointments = current_user.role.eql?('doctor') ?  current_user.appointments : Appointment.order('created_at DESC')
@@ -24,7 +24,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to @appointment, notice: 'Post was successfully updated.'
+      redirect_to appointments_path, notice: 'Post was successfully updated.'
     else
       render action: 'edit'
     end
@@ -37,7 +37,7 @@ class AppointmentsController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  def set_post
+  def set_appointment
     @appointment = Appointment.find(params[:id])
   end
 
