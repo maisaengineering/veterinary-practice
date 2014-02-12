@@ -41,3 +41,22 @@ gem 'jbuilder', '~> 1.2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+gem 'devise'
+gem 'haml-rails'
+gem 'mysql2'
+gem 'simple_form'
+gem 'therubyracer', :platform=>:ruby
+gem 'thin'
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
+  gem 'html2haml'
+  gem 'quiet_assets'
+  gem 'rails_layout'
+end
+
