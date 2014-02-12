@@ -9,6 +9,7 @@ class Appointment < ActiveRecord::Base
   #Scopes -------------------------------
 
   #Validations goes here ----------------
+  validates :date_of_visit,:pet,:customer,:reminder_of_appointment,:reason_for_visit,presence: true
 
   #Callbacks goes here ------------------
 

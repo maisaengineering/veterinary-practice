@@ -10,6 +10,13 @@ class Information < ActiveRecord::Base
  #Scopes -------------------------------
 
 #Validations goes here ----------------
+  validates :name_of_pet,:breed, presence: true, length: { maximum: 35 }
+  validates :type_of_pet , inclusion: { in: %w(dog cat bird),
+                                        message: "%{value} is not a valid pet type" }
+  validates :age,:weight, numericality: true ,presence: true
+  validates :date_of_last_visit,presence: true
+
+
 
 #Callbacks goes here ------------------
 

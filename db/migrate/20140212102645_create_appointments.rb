@@ -5,7 +5,7 @@ class CreateAppointments < ActiveRecord::Migration
       t.date :date_of_visit ,null: false
       t.string :pet
       t.string :customer
-      t.boolean :reminder_of_appointment
+      t.boolean :reminder_of_appointment ,default: false
       t.text :reason_for_visit
       t.integer :receptionist_id , index: true
       t.timestamps
