@@ -26,6 +26,7 @@
           %td
             = link_to 'Edit' ,edit_appointment_path(appointment)  if can? :update, appointment
             = link_to 'Delete' ,appointment,method: :delete,data: {confirm: 'Sure?'}  if can? :destroy, appointment
+            = link_to 'Record' ,new_appointment_information_path(appointment.id) if can? :create,Information
         - count += 1
 
 - if can? :create, Appointment
